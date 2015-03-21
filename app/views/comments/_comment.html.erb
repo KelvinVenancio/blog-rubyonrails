@@ -5,11 +5,11 @@
 		<p class="comment_time">Enviado <%= time_ago_in_words(comment.created_at) %> atrás</p>
 	</div>
 
+	<% if user_signed_in? %>
 	<p><%= link_to 'Deletar', [comment.post, comment],
 					method: :delete,
 					class: "button",
 					data: {confirm: 'Deseja deletar?'} %>
-
-
 	</p>
+	<% end %>
 </div>

@@ -29,7 +29,9 @@
 			<li><a href="#">E-mail</a></li>
 		</ul>
 
-		<p class="sign_in">Login</p>
+		<% if !user_signed_in? %>
+			<p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
+		<% end %>
 	</div>
 
 	<div id="main_content">
@@ -42,10 +44,12 @@
 				<%= link_to "Voltar para Posts", root_path %>
 			<% end %>
 
+			<% if user_signed_in? %>
 			<div class="buttons">
 				<button class="button"><%= link_to "Novo Post", new_post_path %></button>
 				<button class="button">Sair</button>
 			</div>
+			<% end %>
 		</div>
 
 		<% flash.each do |name, msg| %>
