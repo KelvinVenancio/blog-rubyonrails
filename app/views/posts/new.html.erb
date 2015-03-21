@@ -2,6 +2,16 @@
 	<h1>Novo Post</h1>
 
 	<%= form_for :post, url: posts_path do |f| %>
+	  <% if @post.errors.any? %>
+	  	<div id="errors">
+	  		<h2><%= pluralize(@post.errors.count, "erros") %> o impediu de salvar</h2>
+	  		<ul>
+	  			<% @post.errors.full_messages.each do |msg| %>
+	  			<li><%= msg %></li>
+	  			<% end %>
+	  		</ul>
+	  	</div
+	  <% end %>
 		<p>
 			<%= f.label :título %><br>
 			<%= f.text_field :title %>
