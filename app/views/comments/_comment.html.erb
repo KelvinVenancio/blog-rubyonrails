@@ -1,0 +1,15 @@
+<div class="comment clearfix">
+	<div class="comment_content">
+		<p class="comment_name"><strong><%= comment.name %></strong></p>
+		<p class="comment_body"><%= comment.body %></p>
+		<p class="comment_time">Enviado <%= time_ago_in_words(comment.created_at) %> atrás</p>
+	</div>
+
+	<p><%= link_to 'Deletar', [comment.post, comment],
+					method: :delete,
+					class: "button",
+					data: {confirm: 'Deseja deletar?'} %>
+
+
+	</p>
+</div>
