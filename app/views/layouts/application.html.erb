@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog1</title>
+  <title>Blog - Ruby on Rails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="sidebar">
+		<div id="logo">
+			<%= link_to root_path do %>
+			<%= image_tag "logo.svg" %>
+			<% end %>
+		</div>
 
-<%= yield %>
+		<ul>
+			<li class="category">Website</li>
+			<li><%= link_to "Blog", root_path %></li>
+			<li>Sobre</li>
+		</ul>
 
+		<ul>
+			<li class="category">Social</li>
+			<li>Twitter</li>
+			<li>Instagram</li>
+			<li>Github</li>
+			<li>E-mail</li>
+		</ul>
+
+		<p class="sign_in">Login</p>
+	</div>
+
+	<div id="main_content">
+		<div id="header">
+			<p>Todos os Posts</p>
+
+			<div class="buttons">
+				<button class="button"><%= link_to "Novo Post", new_post_path %></button>
+				<button class="button">Sair</button>
+			</div>
+		</div>
+
+		
+
+	  <%= yield %>
+	</div>
 </body>
 </html>
