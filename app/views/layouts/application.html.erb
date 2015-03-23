@@ -47,7 +47,7 @@
 			<% if user_signed_in? %>
 			<div class="buttons">
 				<button class="button"><%= link_to "Novo Post", new_post_path %></button>
-				<button class="button">Sair</button>
+				<button class="button"><%= link_to "Sair", destroy_user_session_path, method: :delete %></button>
 			</div>
 			<% end %>
 		</div>
